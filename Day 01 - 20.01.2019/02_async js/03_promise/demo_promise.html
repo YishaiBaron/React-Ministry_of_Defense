@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        let num = 4;
+
+        function MyPromise(p1) {
+            let resolve, reject;
+
+            this.then = function (x) {
+                resolve = x;
+                return this;
+            }
+
+
+            this.catch = function (y) {
+                reject = y;
+                return this;
+            }
+
+            this.runPromise = function () {
+                p1(resolve, reject);
+            }
+        }
+
+        let p = new MyPromise((resoBlve, reject) => { num == 4 ? resolve() : reject(); });
+
+        p
+            .then(() => { console.log("I have a success") })
+            .catch(() => { console.log("I have an error") });
+
+
+
+        p.runPromise();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

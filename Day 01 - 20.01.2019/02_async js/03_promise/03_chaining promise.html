@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<script>
+    <script>
 
 
-    let num=4;
+        let num = 4;
+        new Promise(
+            (resolve, reject) => { num == 4 ? resolve("ok") : reject("not ok") }
+        )
+            .then(
+                (x) => {
+                    console.log(x);
+                    return 100;
+                }
+            )
+            .then(
+                (z) => {
+                    console.log(z);
+                }
+            )
+            .catch(
+                (y) => { console.log(y) }
+            )
 
-    new Promise(
-        (resolve, reject)=>{
-        num==4 ?
-        resolve("ok")
-        :reject("not ok")}
-    )
-    .then(
-        (x)=>{
-            console.log(x);
-            return 100;
-            }
-    )
-    .then(
-        (z)=>{
-            console.log(z);
-            }
-    )
-    .catch(
-        (y)=>{console.log(y)}
-    )
-
-    /*
-    OUTPUT:
-    __________________________
-    ok
-    100
-    */
-</script>
+        /*
+        OUTPUT:
+        __________________________
+        ok
+        100
+        */
+    </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

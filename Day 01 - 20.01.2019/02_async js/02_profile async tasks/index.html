@@ -6,13 +6,22 @@
 
 
         function f1() {
+            console.profile("f1");
+
+
             document.getElementById("res").innerHTML += `<p>f1 START</p>`;
             for (let i = 0; i < 10 ** 10; i++);
             document.getElementById("res").innerHTML += `<p>f1 END</p>`;
+
+
+            console.profileEnd("f1");
         }
 
 
         function f2() {
+            console.profile("f2");
+
+
             document.getElementById("res").innerHTML += `<p>f2 START</p>`;
             setTimeout(
                 () => {
@@ -21,10 +30,15 @@
                 }
                 , 10000
             )
+
+            console.profileEnd("f2");
         }
 
 
         function f3() {
+            console.profile("f3");
+
+
             document.getElementById("res").innerHTML += `<p>f3 START</p>`;
             setTimeout(
                 () => {
@@ -34,6 +48,8 @@
                 }
                 , 10000
             )
+
+            console.profileEnd("f3");
         }
     </script>
 </head>
