@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+        /*
+        The "PROMISE" way , and the "CALLBACK" way - are giving the same result.
+        but the "PROMISE" way is more clear to the developer.
+        */
+
+        
+        //-------------------PROMISE----------------------
+        new Promise((resolve, reject) => { setTimeout(resolve, 3000) })
+            .then(() => {
+                console.log(`3 sec passed : ${Date.now()}`);
+                return new Promise((resolve, reject) => { setTimeout(resolve, 1500) })
+            })
+            .then(() => {
+                console.log(`1.5 sec passed : ${Date.now()}`);
+                return new Promise((resolve, reject) => { setTimeout(resolve, 1000) })
+            })
+            .then(() => {
+                console.log(`1 sec passed : ${Date.now()}`);
+            })
+
+
+        //-------------------CALLBACK----------------------
+        setTimeout(
+            () => {
+                console.log(`3 sec passed : ${Date.now()}`);
+                setTimeout(
+                    () => {
+                        console.log(`1.5 sec passed : ${Date.now()}`);
+                        setTimeout(
+                            () => {
+                                console.log(`1 sec passed : ${Date.now()}`);
+
+                            }, 1000)
+                    }, 1500)
+            }, 3000)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
