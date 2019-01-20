@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+
+        console.log("Before promise");
+
+        new Promise((x, y) => {x()} )
+            .then(()=>console.log("Promise is resolved"));
+
+
+        console.log("After promise");
+
+
+        /*
+        OUTPUT:
+        _________________________________
+        
+            Before promise
+            After promise
+            Promise is resolved 
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

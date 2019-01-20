@@ -9,7 +9,7 @@
             try {
 
                 //get 250 countries
-                let res = await fetch("https://restcountries.eu/rest/v2/all?fields=name;borders;")
+                let res = await fetch("https://restcountries.eu/rest/v2/all?fields=name;borders;");
 
                 //get 250 countries as json list
                 let arr = await res.json();

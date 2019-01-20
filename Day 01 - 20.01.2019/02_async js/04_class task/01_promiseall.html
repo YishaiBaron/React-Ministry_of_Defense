@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <script>
+        let arr = [
+            new Promise((resolve, reject) => { setTimeout(() => { resolve("I am 1") }, 3000) }),
+            new Promise((resolve, reject) => { setTimeout(() => { resolve("I am 2") }, 1000) })
+        ];
+
+
+
+        Promise.all(arr).then(res => console.log("all", res));
+
+        Promise.race(arr).then(res => console.log("race", res));
+
+
+        arr[0]
+            .then(res => {
+                console.log("then step 1", res)
+                return arr[1];
+            })
+            .then(res => console.log("then step 2", res))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
