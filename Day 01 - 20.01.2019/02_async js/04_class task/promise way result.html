@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script>
+
+        //get 250 countries
+        fetch("https://restcountries.eu/rest/v2/all?fields=name;borders;")
+            .then(res => res.json())
+            //get 250 countries as json list
+            .then(arr => {
+                let country = arr[(parseInt(Math.random() * 249))].borders;
+                console.log(country);
+                return country;
+            }
+            )
+            //get an array of borders (string array) of the selected country
+            .then(borders => Promise.all(borders.map(e => fetch(`https://restcountries.eu/rest/v2/name/${e}?fields=flag`))))
+            
+            .then(flags => Promise.all(flags.map(e => e.json())))
+            
+            .then(flagList => {
+                let array = flagList.filter(e => (e instanceof Array));
+                console.log(array);
+                let res = "";
+                for (let country of array) {
+                    for (let flag of country) {
+                        res += `<img src='${flag.flag}'/>`
+                    }
+
+                    document.getElementById("res").innerHTML = res;
+                }
+            })
+            .catch(err => console.log(err))
+
+    </script>
+</head>
+
+<body>
+    <div id="res"></div>
+</body>
+
+</html>

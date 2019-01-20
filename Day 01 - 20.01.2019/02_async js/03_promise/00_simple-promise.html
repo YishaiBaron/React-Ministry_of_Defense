@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+
+
+    let num=4;
+
+    new Promise(
+        (resolve, reject)=>{num==4?resolve():reject()}
+    )
+    .then(
+        ()=>{console.log("ok")}
+    )
+    .catch(
+        ()=>{console.log("not ok")}
+    )
+
+    /*
+    OUTPUT:
+    __________________________
+    ok
+    */
+</script>
+</head>
+<body>
+    
+</body>
+</html>

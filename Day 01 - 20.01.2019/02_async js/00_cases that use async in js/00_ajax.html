@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+       let req=new XMLHttpRequest();
+       req.open("GET","https://jsonplaceholder.typicode.com/todos/1");
+
+       req.onreadystatechange=()=>{
+           if(req.readyState==4)
+                console.log(req.response);
+       }
+
+       req.send();
+       
+       console.log("END");
+
+
+       /*
+       OUTPUT:
+       ________________________
+        END
+
+        {
+        "userId": 1,
+        "id": 1,
+        "title": "delectus aut autem",
+        "completed": false
+        }
+       
+       */
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

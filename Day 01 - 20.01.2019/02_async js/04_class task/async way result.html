@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script>
+
+        async function getFlags() {
+            try {
+
+                //get 250 countries
+                let res = await fetch("https://restcountries.eu/rest/v2/all?fields=name;borders;")
+
+                //get 250 countries as json list
+                let arr = await res.json();
+
+                //get an array of borders (string array) of the selected country
+                let borders = arr[(parseInt(Math.random() * 249))].borders;
+                console.log(borders);
+
+                let flags = await Promise.all(borders.map(e => fetch(`https://restcountries.eu/rest/v2/name/${e}?fields=flag`)));
+
+                let flagList = await Promise.all(flags.map(e => e.json()));
+
+                let array = flagList.filter(e => (e instanceof Array));
+                console.log(array);
+                let resImages = "";
+                for (let country of array) {
+                    for (let flag of country) {
+                        resImages += `<img src='${flag.flag}'/>`
+                    }
+
+                    document.getElementById("res").innerHTML = resImages;
+                }
+            }
+            catch (err) {
+                console.log(err)
+            }
+
+        }
+
+        getFlags();
+    </script>
+</head>
+
+<body>
+    <div id="res"></div>
+</body>
+
+</html>

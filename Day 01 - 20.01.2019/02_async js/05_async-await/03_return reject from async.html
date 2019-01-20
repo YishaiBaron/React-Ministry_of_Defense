@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function getPromise(num) {
+            return new Promise(
+                (resolve, reject) => {
+                           (num) ?
+                                resolve("number is ok") :
+                                reject("please dont send zero")                  
+                }
+            )
+        }
+
+        async function callByAwait(num1) {
+
+            let str = "";
+            try {
+                let resolveValue = await getPromise(num1);
+                console.log(`num1 is ${num1}`, resolveValue);
+                str = resolveValue;
+            }
+            catch (rejectValue) {
+                console.log(`num1 is ${num1}`, rejectValue);
+                throw new Error("I got an error");
+            }
+
+            return str;
+
+        }
+
+
+        callByAwait(0)
+        .then(functionRes=>{
+            console.log("functionRes", functionRes)
+        })
+        .catch(err=>{
+            console.log("callByAwait trow error:",err)
+        });
+        
+
+
+        /*
+        output:
+        _________________
+        num1 is 0 please dont send zero
+        callByAwait trow error: Error: I got an error
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

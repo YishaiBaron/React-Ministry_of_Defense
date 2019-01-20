@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function getPromise(num) {
+            return new Promise(
+                (resolve, reject) => {
+                           (num) ?
+                                resolve("number is ok") :
+                                reject("please dont send zero")                  
+                }
+            )
+        }
+
+        async function callByAwait(num1) {
+
+            let str = "";
+            try {
+                let resolveValue = await getPromise(num1);
+                console.log(`num1 is ${num1}`, resolveValue);
+                str = resolveValue;
+            }
+            catch (rejectValue) {
+                console.log(`num1 is ${num1}`, rejectValue);
+                str = rejectValue;
+            }
+
+            return str;
+
+        }
+
+
+        callByAwait(5)
+        .then(functionRes=>{
+            console.log("functionRes", functionRes)
+        });
+        
+
+
+        /*
+        output:
+        _________________
+        num1 is 5 number is ok
+        functionRes number is ok   
+        
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

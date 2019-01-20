@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script>
+       let arr=[2000,1000,4000];
+
+
+       let mapArr=arr.map(
+           e=>new Promise((resolve,reject)=>{
+               setTimeout(resolve(`I waited ${e} ms`),e)
+            })
+           );
+
+        Promise.all(mapArr)
+        .then(resArr=>console.log(resArr));
+
+
+        /*
+        OUTPUT:
+        ________________________
+         I waited 2000 ms,I waited 1000 ms,I waited 4000 ms
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
