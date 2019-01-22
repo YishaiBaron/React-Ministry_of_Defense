@@ -1,7 +1,7 @@
 
 # Crud in react
 
-## Step 2
+## Step 1
 
 Givem the following http requests:
 
