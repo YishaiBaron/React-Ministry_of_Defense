@@ -43,7 +43,7 @@ app.listen(process.env.PORT||3500, function () {
 ```json
  {
  "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "engines": {
     "node":"8.11.3"
