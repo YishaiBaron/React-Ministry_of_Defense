@@ -8,10 +8,12 @@ import Login from './components/Login';
 import { counterReducer } from './reducers/counterReducer';
 import { userReducer } from './reducers/userReducer';
 
+
 const combined = combineReducers({
   counterReducer,
   userReducer
-})
+});
+
 /**
  * createStore  -Creates a Redux store that holds the state tree.
  * @param reducer A function that returns the next state tree, given the
