@@ -1,0 +1,1 @@
+link: https://www.googleapis.com/books/v1/volumes?q=israel&maxResults=40&fields=items(id%2CvolumeInfo(authors%2Cdescription%2CimageLinks(thumbnail)%2CpageCount%2CpublishedDate%2Cpublisher%2Csubtitle%2Ctitle))
