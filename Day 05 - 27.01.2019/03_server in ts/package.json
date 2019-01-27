@@ -1,0 +1,8 @@
+{
+  "name": "",
+  "version": "",
+  "scripts": {
+      "publish": "tsc app.ts",
+      "start": "node app.js"
+  }
+}
